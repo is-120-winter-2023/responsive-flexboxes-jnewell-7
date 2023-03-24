@@ -96,8 +96,8 @@ img[src$="svg"] {
 nav {
   font-size: 1.5em;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  align-self: center;
 }
 
 nav ul {
@@ -111,16 +111,16 @@ nav a {
   padding: 1rem;
 }
 
-main {
-  /* margin: 0 auto;
-  padding: 0 1rem;
-  max-width: 60rem; */
-  background-color: #f2f2f2ff;
-}
-
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #f2f2f2ff;
   font-size: 1.5vw;
+}
+
+main {
+  align-self: center;
+  background-color: #f2f2f2ff;
 }
 
 p {
@@ -129,7 +129,6 @@ p {
 }
 
 article {
-  margin: 0 auto;
   padding: 0 1rem;
   max-width: 60rem;
   margin-top: 1.5em;
@@ -137,7 +136,6 @@ article {
 }
 
 aside {
-  margin: 0 auto;
   padding: 0 1rem;
   max-width: 60rem;
 }
@@ -149,12 +147,13 @@ footer {
 }
 
 h1 {
+  display: flex;
   font-family: "Fjalla One", sans-serif;
   text-shadow: 0px 0px 4px black;
   color: white;
-  font-size: 9em;
-  /* padding-bottom: 0.2em; */
-  text-align: center;
+  font-size: 2em;
+  align-self: center;
+  letter-spacing: 9rem;
 }
 
 h2 {
@@ -224,27 +223,29 @@ a.button:hover {
   position: relative;
 }
 
-.hero .hero-text {
+.hero .text-wrapper {
   position: absolute;
   inset: 0;
   text-align: center;
-  height: 80vh;
-  padding: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
 
 .hero-p {
-  margin: 0;
   color: white;
   text-shadow: 0px 0px 3px black;
   font-size: 2em;
+  margin: 0;
 }
 
 .blur {
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .hero h1 {
-  font-size: clamp(15rem, 11vw + 1rem, 9rem);
+  font-size: clamp(17em, 11vw + 1em, 9em);
 }
 
 .sr-only {
@@ -301,4 +302,13 @@ a.button:hover {
 section {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel .image-wrapper {
+  order: -1;
 }
