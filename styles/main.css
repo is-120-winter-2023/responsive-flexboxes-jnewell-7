@@ -93,11 +93,27 @@ img[src$="svg"] {
 }
 
 /************ add your CSS here *****************/
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2ff;
+  font-family: "Montserrat", sans-serif;
+  color: var(--text);
+}
+
+main {
+  align-self: center;
+  background-color: #f2f2f2ff;
+  max-width: 70rem;
+  margin-bottom: 2rem;
+  
+}
+
 nav {
   font-size: 1.5em;
   display: flex;
   justify-content: space-around;
-  align-self: center;
+  align-items: stretch;
 }
 
 nav ul {
@@ -111,57 +127,22 @@ nav a {
   padding: 1rem;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  background-color: #f2f2f2ff;
-  font-size: 1.5vw;
-}
-
-main {
-  align-self: center;
-  background-color: #f2f2f2ff;
-}
-
 p {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
 }
 
-article {
-  padding: 0 1rem;
-  max-width: 60rem;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-aside {
-  padding: 0 1rem;
-  max-width: 60rem;
-}
-
-footer {
-  padding: 1rem;
-  background-color: var(--grey);
-  color: white;
-}
-
 h1 {
-  display: flex;
   font-family: "Fjalla One", sans-serif;
   text-shadow: 0px 0px 4px black;
   color: white;
-  font-size: 2em;
-  align-self: center;
-  letter-spacing: 9rem;
+  /* font-size: 2em; */
 }
 
 h2 {
   font-family: "Fjalla One", sans-serif;
   color: var(--blue);
   font-size: 5em;
-  padding-top: 0.4em;
-  padding-bottom: 0.2em;
 }
 
 h3 {
@@ -180,24 +161,39 @@ h4 {
   padding-bottom: 0.2em;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  color: var(--text);
-}
 
 a {
   text-decoration: none;
   color: var(--red);
+  font-weight: bold;
 }
 
 a[href]:hover {
-  /* font-size: 1.1rem; */
   text-decoration: underline;
 }
 
-/* * {
-  background-color: white;
-} */
+article, aside {
+  padding: 0 1rem;
+  max-width: 60rem;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+footer {
+  background-color: var(--grey);
+  color: white;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
 
 .button {
   border: solid 2px black;
@@ -219,8 +215,9 @@ a.button:hover {
 }
 
 .hero {
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
+  flex: 0 0 auto;
 }
 
 .hero .text-wrapper {
@@ -230,7 +227,7 @@ a.button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 }
 
 .hero-p {
@@ -248,22 +245,19 @@ a.button:hover {
   font-size: clamp(17em, 11vw + 1em, 9em);
 }
 
-.sr-only {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
 
 .cards {
   display: flex;
   gap: 1rem;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.card {
+  flex: 1 1 0;
+  position: relative;
+  transition: 0.3s cubic-bezier(0, 0, 0.5, 1);
+  font-size: 2em;
 }
 
 .cards img {
@@ -274,19 +268,14 @@ a.button:hover {
 .cards p {
   color: white;
   display: flex;
-  position: absolute;
-  font-size: 2em;
   align-items: center;
+  position: absolute;
   font-weight: bold;
   inset: 0;
+  margin: 0;
+  padding: 0 1rem;
   text-shadow: 0px 0px 5px black;
   justify-content: center;
-}
-
-.card {
-  flex: 1 1 0;
-  position: relative;
-  transition: 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
 
 .card:hover {
@@ -311,4 +300,42 @@ section {
 
 .panel .image-wrapper {
   order: -1;
+}
+
+@media (min-width: 500px) {
+  .panel {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .panel h2 {
+    margin: 0;
+  }
+
+  .panel .text-wrapper {
+    flex: 1 1 40%;
+  }
+
+  .panel .image-wrapper {
+    order: 0;
+    flex: 1 1 60%;
+  }
+
+  .panel .left {
+    order: -1;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 40%;
+  }
+}
+@media (min-width: 1000px) {
+  .cards {
+    flex-wrap: nowrap;
+  }
 }
