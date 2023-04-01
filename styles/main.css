@@ -119,6 +119,7 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
+  justify-content: right;
   flex-direction: row;
   flex-wrap: nowrap;
 }
@@ -127,8 +128,6 @@ nav a {
   padding: 1rem;
 }
 
-p {
-}
 
 h1 {
   font-family: "Fjalla One", sans-serif;
@@ -139,7 +138,7 @@ h1 {
 h2 {
   font-family: "Fjalla One", sans-serif;
   color: var(--blue);
-  font-size: 5em;
+  font-size: 4em;
 }
 
 h3 {
@@ -196,12 +195,11 @@ footer {
   border: solid 2px black;
   background-color: white;
   color: black;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem;
   border-radius: 5px;
   text-decoration: none;
   display: inline-block;
   font-weight: 600;
-  margin: 0 0 2rem;
 }
 
 a.button:hover {
@@ -295,11 +293,16 @@ section {
   flex-direction: column;
 }
 
+.panel img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .panel .image-wrapper {
   order: -1;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 530px) {
   .fullscreen {
     min-height: 70vh;
     display: flex;
@@ -311,20 +314,21 @@ section {
     gap: 2rem;
   }
 
-  .panel h2 {
-    /* margin: 0; */
-  }
-
   .panel .text-wrapper {
+    display: flex;
     flex: 1 1 40%;
     flex-direction: column;
     justify-content: space-between;
   }
 
+  .panel .text-wrapper .button {
+    align-self: flex-start;
+  }
+
   .panel .image-wrapper {
     order: 0;
     flex: 1 1 40%;
-  }
+    }
 
   .panel .left {
     order: -1;
@@ -342,5 +346,30 @@ section {
 @media (min-width: 1000px) {
   .cards {
     flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 529px) {
+  .panel .text-wrapper {
+    height: 60vh;
+  }
+
+  .panel p, h2 {
+    padding-bottom: 1rem;
+  }
+
+  .panel .button {
+    margin-top: 1rem;
+  }
+
+  .panel .image-wrapper {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .card {
+    flex: auto;
+    transform: scale(1);
   }
 }
